@@ -2,7 +2,7 @@
   <Header />
   <div class="container">
     <Balance :total = "total" />
-    <IncomeExpenses/>
+    <IncomeExpenses :transactions = "transactions" />
     <TransactionLists :transactions = "transactions" />
     <AddTransactions/>
   </div>
@@ -19,14 +19,18 @@
   const transactions = ref ([ 
     {id: 1, text: 'Flower', amount: -19.99},
     {id: 2, text: 'Beer', amount: -4.99},
-    {id: 3, text: 'Paycheck', amount: +540.00}
+    {id: 3, text: 'Paycheck', amount: +540.00},
+    {id: 4, text: 'Child Support', amount: -2000.00}
   ]);
     
+  //Get total
   const total = computed(() => {
     return transactions.value.reduce((acc, transaction) =>{
       return acc + transaction.amount;
     }, 0);
   })
+
+
 
 </script>
 
