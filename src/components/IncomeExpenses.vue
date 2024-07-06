@@ -6,7 +6,7 @@
     </div>
     <div>
         <h4>Expense</h4>
-        <p id="money-minus" class="money minus">-${{ expense }}</p>
+        <p id="money-minus" class="money minus">${{ expense }}</p>
     </div>
 </div>
 </template>
@@ -37,7 +37,7 @@
       .filter(transaction => transaction.amount < 0)
       .reduce((acc, transaction) =>{
       return acc + transaction.amount;
-    }, 0).toFixed(2)*-1;
+    }, 0).toFixed(2);
   })
  
 
